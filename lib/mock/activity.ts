@@ -1,0 +1,98 @@
+import type { Activity } from '@/lib/types';
+
+const now = Date.now();
+const minsAgo = (mins: number) => new Date(now - mins * 60000).toISOString();
+const hrsAgo = (hrs: number) => new Date(now - hrs * 3600000).toISOString();
+
+export const activities: Activity[] = [
+  {
+    id: 'a1',
+    type: 'task-completed',
+    userId: 'u1',
+    targetId: 't3',
+    targetType: 'task',
+    targetName: 'Set up authentication flow',
+    timestamp: minsAgo(15),
+  },
+  {
+    id: 'a2',
+    type: 'status-changed',
+    userId: 'u4',
+    targetId: 't6',
+    targetType: 'task',
+    targetName: 'Optimize query performance for large datasets',
+    timestamp: minsAgo(42),
+  },
+  {
+    id: 'a3',
+    type: 'comment',
+    userId: 'u2',
+    targetId: 't11',
+    targetType: 'task',
+    targetName: 'Build Button component variants',
+    timestamp: hrsAgo(2),
+  },
+  {
+    id: 'a4',
+    type: 'task-created',
+    userId: 'u5',
+    targetId: 't24',
+    targetType: 'task',
+    targetName: 'Write pipeline documentation',
+    timestamp: hrsAgo(3),
+  },
+  {
+    id: 'a5',
+    type: 'task-completed',
+    userId: 'u2',
+    targetId: 't10',
+    targetType: 'task',
+    targetName: 'Document color token system',
+    timestamp: hrsAgo(5),
+  },
+  {
+    id: 'a6',
+    type: 'member-joined',
+    userId: 'u3',
+    targetId: 'p5',
+    targetType: 'project',
+    targetName: 'Verge Onboarding Flow',
+    timestamp: hrsAgo(8),
+  },
+  {
+    id: 'a7',
+    type: 'task-completed',
+    userId: 'u5',
+    targetId: 't22',
+    targetType: 'task',
+    targetName: 'Configure deployment staging environments',
+    timestamp: hrsAgo(12),
+  },
+  {
+    id: 'a8',
+    type: 'project-created',
+    userId: 'u2',
+    targetId: 'p5',
+    targetType: 'project',
+    targetName: 'Verge Onboarding Flow',
+    timestamp: hrsAgo(20),
+  },
+  {
+    id: 'a9',
+    type: 'task-completed',
+    userId: 'u1',
+    targetId: 't7',
+    targetType: 'task',
+    targetName: 'Create real-time chart components',
+    timestamp: hrsAgo(26),
+  },
+  {
+    id: 'a10',
+    type: 'comment',
+    userId: 'u4',
+    targetId: 't14',
+    targetType: 'task',
+    targetName: 'Fix rate limiting memory leak',
+    timestamp: hrsAgo(30),
+  },
+];

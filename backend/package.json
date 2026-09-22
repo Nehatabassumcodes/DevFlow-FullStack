@@ -1,0 +1,43 @@
+{
+  "name": "devflow-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DevFlow REST API (Express + TypeScript + Prisma + SQLite)",
+  "main": "dist/server.js",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean && prisma generate",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "setup": "prisma generate && prisma migrate deploy",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:status": "prisma migrate status",
+    "prisma:reset": "prisma migrate reset",
+    "prisma:studio": "prisma studio",
+    "test:persistence": "npm run build && node scripts/persistence-test.mjs",
+    "test:ai": "npm run build && node scripts/ai-integration-test.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "prisma": "^6.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
