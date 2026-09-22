@@ -57,12 +57,12 @@ export function createSession(userId: string): string {
 
 export function sessionCookieOptions(): string {
   const secure = env.isProduction ? '; Secure' : '';
-  return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure}`;
+  return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=None; Max-Age=0${secure}`;
 }
 
 export function setSessionCookie(value: string): string {
   const secure = env.isProduction ? '; Secure' : '';
-  return `${SESSION_COOKIE}=${value}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_TTL_SECONDS}${secure}`;
+  return `${SESSION_COOKIE}=${value}; Path=/; HttpOnly; SameSite=None; Max-Age=${SESSION_TTL_SECONDS}${secure}`;
 }
 
 export function getSessionCookieName(): string {
